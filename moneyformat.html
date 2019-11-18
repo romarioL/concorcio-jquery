@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Money format</title>
+</head>
+<body>
+   Valor  <input  type="text" id="money_format"> <br>
+   Parcela: <select id="parcela">
+   	   <option value="1" >12x</option>
+   	   <option  value="2">14x</option>
+   </select>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script type="text/javascript">
+	$('#money_format').keyup(() => {
+
+		    var value =	$('#money_format').val()
+
+		    var money = value.replace(/\D/g, '')
+
+
+
+
+			if(money > 500)
+			{
+				$('#parcela').val('2')
+
+			    $('#money_format').mask('R$ 999.990,00')
+
+			    console.log("if")
+			}else {
+
+				$('#parcela').val('1')
+
+				$('#money_format').mask('R$ 999.990,00')
+
+				console.log("else")
+
+			}
+
+
+
+	})
+
+	
+</script>
+</html>
